@@ -1,0 +1,63 @@
+{
+  "name": "mcp-connection-dashboard",
+  "version": "1.0.0",
+  "description": "Interactive Web Dashboard & CLI for Model Context Protocol (MCP) servers including Cloudflare Sandbox Container & SSH MCP",
+  "main": "dist/server.cjs",
+  "type": "module",
+  "bin": {
+    "mcp-dashboard": "./bin/mcp-dashboard.js",
+    "mcp-cli": "./cli.ts"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "cli.ts",
+    "README.md",
+    "package.json"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "cloudflare",
+    "sandbox-container",
+    "ssh",
+    "dashboard",
+    "cli"
+  ],
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "start": "node dist/server.cjs",
+    "clean": "rm -rf dist server.js",
+    "lint": "tsc --noEmit",
+    "cli": "tsx cli.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "vite": "^6.2.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "commander": "^15.0.0",
+    "esbuild": "^0.25.0",
+    "picocolors": "^1.1.1",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3"
+  },
+  "bin": {
+    "mcp-cli": "./cli.ts"
+  }
+}
